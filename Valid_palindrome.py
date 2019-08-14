@@ -25,4 +25,34 @@ class Solution(object):
     return True
     
    # solution #2:(reverse)
+  class Solution(object):
+  def valid(self, input):
+    """
+    input: string input
+    return: boolean
+    """
+    # write your solution here
+    lst = []
+    input = input.lower()
+    for i in input:
+        if i.isalnum():
+            lst.append(i)
+    
+    if not lst or len(lst) <= 1:
+      return True
+    lst_new = self.reverse(lst)
+    if lst_new == lst:
+      return True
+    return False
+    
+
+  def reverse(self, input):
+      l = list(input)
+      left, right = 0, len(input) -1
+      while left < right:
+        l[left], l[right] = l[right], l[left]
+        left += 1
+        right -= 1
+      return l
+    
    
